@@ -1,0 +1,209 @@
+/* ===========================
+   RESET & BASE
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a1a;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+#container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a1a;
+  overflow: hidden;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+/* ===========================
+   CONTENT CENTER
+=========================== */
+#content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===========================
+   HELLO & WORLD TEXT
+=========================== */
+#hello {
+  font-size: 84px;
+  font-weight: 900;
+  letter-spacing: 8px;
+  background: linear-gradient(90deg, #00f5ff, #bf00ff, #ff00aa, #00f5ff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s linear infinite, fadeInDown 1s ease forwards;
+  opacity: 0;
+  filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.5));
+}
+
+#world {
+  font-size: 84px;
+  font-weight: 900;
+  letter-spacing: 8px;
+  margin-top: -10px;
+  background: linear-gradient(90deg, #ff00aa, #00f5ff, #bf00ff, #ff00aa);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s linear infinite reverse, fadeInUp 1s ease 0.3s forwards;
+  opacity: 0;
+  filter: drop-shadow(0 0 20px rgba(191, 0, 255, 0.5));
+}
+
+/* ===========================
+   SUBTITLE & TAGLINE
+=========================== */
+#subtitle {
+  margin-top: 20px;
+  font-size: 14px;
+  letter-spacing: 5px;
+  color: rgba(0, 245, 255, 0.7);
+  text-transform: uppercase;
+  animation: fadeIn 1s ease 1s forwards;
+  opacity: 0;
+}
+
+#tagline {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(191, 0, 255, 0.6);
+  animation: fadeIn 1s ease 1.4s forwards;
+  opacity: 0;
+}
+
+/* ===========================
+   CODE BOX
+=========================== */
+#code-box {
+  margin-top: 32px;
+  padding: 16px 32px;
+  background: rgba(0, 245, 255, 0.04);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  border-radius: 10px;
+  animation: fadeIn 1s ease 1.8s forwards, pulseGlow 3s ease-in-out 2s infinite;
+  opacity: 0;
+}
+
+#code-box code {
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  color: #00f5ff;
+}
+
+#code-box code .kw {
+  color: #bf00ff;
+}
+
+#code-box code .str {
+  color: #ff6eb4;
+}
+
+/* ===========================
+   BLINKING CURSOR
+=========================== */
+#cursor {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  background: #00f5ff;
+  vertical-align: middle;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+/* ===========================
+   ORBIT RINGS
+=========================== */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 245, 255, 0.1);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: spinOrbit linear infinite;
+}
+
+.orbit-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  position: absolute;
+  top: -3.5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===========================
+   KEYFRAME ANIMATIONS
+=========================== */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+@keyframes fadeInDown {
+  0%   { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0%   { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0px rgba(0, 245, 255, 0);
+    border-color: rgba(0, 245, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(0, 245, 255, 0.2);
+    border-color: rgba(0, 245, 255, 0.6);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes spinOrbit {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}

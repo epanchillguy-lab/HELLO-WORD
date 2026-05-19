@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <canvas id="bg"></canvas>
+
+    <div class="orbit-ring" style="width:300px;height:300px;animation-duration:8s;">
+      <div class="orbit-dot" style="background:#00f5ff;box-shadow:0 0 14px #00f5ff;"></div>
+    </div>
+    <div class="orbit-ring" style="width:400px;height:400px;animation-duration:13s;border-color:rgba(191,0,255,0.1);">
+      <div class="orbit-dot" style="background:#bf00ff;box-shadow:0 0 14px #bf00ff;"></div>
+    </div>
+    <div class="orbit-ring" style="width:500px;height:500px;animation-duration:18s;border-color:rgba(255,0,170,0.08);">
+      <div class="orbit-dot" style="background:#ff00aa;box-shadow:0 0 14px #ff00aa;top:auto;bottom:-3.5px;"></div>
+    </div>
+
+    <div id="content">
+      <div id="hello">HELLO</div>
+      <div id="world">WORLD</div>
+      <div id="subtitle">— Cloud Computing Class —</div>
+      <div id="tagline">Universitas Pamulang · 2026</div>
+      <div id="code-box">
+        <code>
+          <span class="kw">print</span>(<span class="str">"Hello World!"</span>)<span id="cursor"></span>
+        </code>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
